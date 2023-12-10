@@ -28,5 +28,5 @@ return {
   -- Highlights hex code
   'norcalli/nvim-colorizer.lua',
   -- Automatically highlights words unde cursor
-  'RRethy/vim-illuminate',
+  -- 'RRethy/vim-illuminate',
 }

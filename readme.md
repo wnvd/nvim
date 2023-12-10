@@ -2,4 +2,4 @@ Migrated to [lazy.nvim]( https://github.com/folke/lazy.nvim ) as [ packer ]( htt
 
 [old config](https://github.com/wnvd/nvim.old)
 
-LSP uses telescope now.
+WIP
