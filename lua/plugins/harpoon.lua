@@ -10,5 +10,8 @@ return {
     vim.keymap.set("n", "<leader>h", mark.add_file)
     -- toggle harpoon explorer
     vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+    -- navigation binds to buffers
+    vim.keymap.set("n", "<C-j>", function() ui.nav_prev() end)
+    vim.keymap.set("n", "<C-l>", function() ui.nav_next() end)
   end
 }

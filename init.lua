@@ -3,6 +3,7 @@ vim.g.maplocalleader = ' '
 
 -- Custom options
 require('custom.options')
+require('custom.keymaps')
 -- Package Manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
