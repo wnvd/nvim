@@ -31,6 +31,7 @@ return {
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
       end
 
+
       nmap('<F2>', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<F3>', vim.lsp.buf.format, '[F]ormat [B]uffer')
       nmap('<F4>', vim.lsp.buf.code_action, '[C]ode [A]ction')
@@ -53,6 +54,10 @@ return {
       nmap('<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, '[W]orkspace [L]ist Folders')
+
+      vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+        vim.lsp.buf.format()
+      end, { desc = 'Format current buffer with LSP' })
     end
 
     -- mason-lspconfig requires that these setup functions are called in this order
@@ -73,7 +78,7 @@ return {
       gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
-      tsserver = {},
+      tsserver = { 'ts', 'js' },
       html = { filetypes = { 'html', 'twig', 'hbs' } },
 
       lua_ls = {
@@ -138,24 +143,24 @@ return {
         --   behavior = cmp.ConfirmBehavior.Replace,
         --   select = false,
         -- },
-      --   ['<Tab>'] = cmp.mapping(function(fallback)
-      --     if cmp.visible() then
-      --       cmp.select_next_item()
-      --     elseif luasnip.expand_or_locally_jumpable() then
-      --       luasnip.expand_or_jump()
-      --     else
-      --       fallback()
-      --     end
-      --   end, { 'i', 's' }),
-      --   ['<S-Tab>'] = cmp.mapping(function(fallback)
-      --     if cmp.visible() then
-      --       cmp.select_prev_item()
-      --     elseif luasnip.locally_jumpable(-1) then
-      --       luasnip.jump(-1)
-      --     else
-      --       fallback()
-      --     end
-      --   end, { 'i', 's' }),
+        --   ['<Tab>'] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --       cmp.select_next_item()
+        --     elseif luasnip.expand_or_locally_jumpable() then
+        --       luasnip.expand_or_jump()
+        --     else
+        --       fallback()
+        --     end
+        --   end, { 'i', 's' }),
+        --   ['<S-Tab>'] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --       cmp.select_prev_item()
+        --     elseif luasnip.locally_jumpable(-1) then
+        --       luasnip.jump(-1)
+        --     else
+        --       fallback()
+        --     end
+        --   end, { 'i', 's' }),
       },
       sources = {
         { name = 'nvim_lsp' },
