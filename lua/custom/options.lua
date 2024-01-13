@@ -41,6 +41,10 @@ vim.o.clipboard = 'unnamedplus'        -- copy paste between vim and everything 
 
 vim.o.completeopt = 'menuone,noselect' -- set completeopt to have better completion exprience
 
+-- they were in ibl, but here is fine
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
