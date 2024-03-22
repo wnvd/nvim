@@ -1,6 +1,9 @@
 return {
   -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
+  opts = {
+    inlay_hints = true,
+  },
   dependencies = {
     -- Automatically install LSPs to stdpath for neovim
     'williamboman/mason.nvim',
@@ -45,7 +48,7 @@ return {
 
       -- See `:help K` for why this keymap
       nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-      nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+      nmap('<A-k>', vim.lsp.buf.signature_help, 'Signature Documentation') -- previously '<C-k>' need 'j', 'k', 'l',';' for harpoon
 
       -- Lesser used LSP functionality
       nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -79,7 +82,7 @@ return {
       -- pyright = {},
       -- rust_analyzer = {},
       tsserver = { 'ts', 'js' },
-      html = { filetypes = { 'html', 'twig', 'hbs' } },
+      html = { filetypes = { 'html', 'twig', 'hbs', 'pug' } },
 
       lua_ls = {
         Lua = {

@@ -30,8 +30,8 @@ vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers 
-vim.keymap.set("n", "<S-l>", ":bnext<CR>", opts)
-vim.keymap.set("n", "<S-h>", ":bnprevious<CR>", opts)
+-- vim.keymap.set("n", "<S-l>", ":bnext<CR>", opts)
+-- vim.keymap.set("n", "<S-h>", ":bnprevious<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode 
@@ -42,9 +42,10 @@ vim.keymap.set("v", ">", ">gv", opts)
 -- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 -- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 -- keymap("v", "p", '"_dp', opts)
+
 -- Move text (theprimeagen)
-vim.keymap.set("v", "<A-k>", ":m '>+1<CR>gv=gv", opts)
-vim.keymap.set("v", "<A-j>", ":m '<-2<CR>gv=gv", opts)
+-- vim.keymap.set("v", "<A-k>", ":m '>+1<CR>gv=gv", opts)
+-- vim.keymap.set("v", "<A-j>", ":m '<-2<CR>gv=gv", opts)
 
 -- use '<leader>p' instead of 'p' when word is highlighted
 vim.keymap.set("x", "<leader>p", [["_dP"]])
@@ -58,7 +59,7 @@ vim.keymap.set("n", "n", "nzzzv", opts)
 vim.keymap.set("n", "N", "Nzzzv", opts)
 
 -- Visual Block --
--- Move text up and down
+-- Move text up and down(theprimeagen)
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
 
@@ -70,6 +71,19 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+-- copied from lazyvim distro some binds can be useful
+
+-- map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
+-- map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
+-- map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
+-- map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
+
+-- Diagnostic underline style --
+-- Error
+vim.cmd.highlight('DiagnosticUnderlineError guisp=#ff00000 gui=undercurl')
+-- Info
+
+-- Warn
 
 -- Terminal --
 -- Better terminal navigation
