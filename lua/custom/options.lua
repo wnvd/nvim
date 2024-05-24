@@ -76,4 +76,5 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
+
 vim.cmd [["highlight WinSeparator guibg=None"]] -- used with laststatus = 3 setting

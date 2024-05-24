@@ -5,6 +5,9 @@ function! s:small_terminal() abort
   wincmd J
   call nvim_win_set_height(0, 12)
   set winfixheight
+  set norelativenumber
+  set nonumber
+  set scrolloff=0
   term
 endfunction
 
